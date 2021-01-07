@@ -30,7 +30,7 @@ export default {
                 'System',
                 `Hello ${this.text}, your password is ${this.password}`,
                 [
-                    {text: 'Ask mme later', onPress: () => console.log('Ask me later pressed')},
+                    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
                     {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
                     {text: 'OK', onPress: () => alert('u press ok')},
                 ],
