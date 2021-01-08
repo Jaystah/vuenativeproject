@@ -9,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 .mainTitle {
-  color: red;
+  color: blue;
   font-family: "Courier New", Courier, monospace;
   font-size: 32px;
 }
