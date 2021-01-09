@@ -38,7 +38,6 @@
 import { Alert, Animated, Easing } from "react-native";
 import {
   createAppContainer,
-  createMaterialTopTabNavigator,
   createMaterialBottomTabNavigator,
 } from "vue-native-router";
 
@@ -46,12 +45,12 @@ import HomeScreen from "./screens/HomeScreen.vue";
 import DetailsScreen from "./screens/DetailsScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 
-const MaterialTopTabNavigator = createMaterialBottomTabNavigator({
+const MaterialBottomTabNavigator = createMaterialBottomTabNavigator({
   Home: HomeScreen,
   Details: DetailsScreen,
   Settings: SettingsScreen,
 });
-const AppNavigator = createAppContainer(MaterialTopTabNavigator);
+const AppNavigator = createAppContainer(MaterialBottomTabNavigator);
 
 export default {
   components: {
