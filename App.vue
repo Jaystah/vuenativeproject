@@ -1,6 +1,5 @@
 <template>
 
-
   <app-navigator></app-navigator>
   
 </template>
@@ -14,8 +13,6 @@
   font-size: 32px;
 }
 
-* {
-}
 .growth-animated-view {
   background-color: "rgb(0, 138, 231)";
   align-self: center;
@@ -41,16 +38,16 @@
 import { Alert, Animated, Easing } from "react-native";
 import {
   createAppContainer,
-  createBottomTabNavigator,
   createMaterialTopTabNavigator,
+  createMaterialBottomTabNavigator,
 } from "vue-native-router";
-
 
 import HomeScreen from "./screens/HomeScreen.vue";
 import DetailsScreen from "./screens/DetailsScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 
-const MaterialTopTabNavigator = createMaterialTopTabNavigator({
+const MaterialTopTabNavigator = createMaterialBottomTabNavigator({
+  Home: HomeScreen,
   Details: DetailsScreen,
   Settings: SettingsScreen,
 });
@@ -60,7 +57,6 @@ export default {
   components: {
     AppNavigator,
   },
-
   data() {
     return {
       text: "",
