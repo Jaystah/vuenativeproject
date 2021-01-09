@@ -42,12 +42,12 @@ import {
 } from "vue-native-router";
 
 import HomeScreen from "./screens/HomeScreen.vue";
-import DetailsScreen from "./screens/DetailsScreen.vue";
+import LoginScreen from "./screens/LoginScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 
 const MaterialBottomTabNavigator = createMaterialBottomTabNavigator({
   Home: HomeScreen,
-  Details: DetailsScreen,
+  Login: LoginScreen,
   Settings: SettingsScreen,
 });
 const AppNavigator = createAppContainer(MaterialBottomTabNavigator);
@@ -60,14 +60,7 @@ export default {
     return {
       text: "",
       password: "",
-      growth: 0,
     };
-  },
-  created: function () {
-    this.growth = new Animated.Value(0);
-  },
-  mounted: function () {
-    this.animateGrowth();
   },
   methods: {
     showData: function () {
@@ -88,17 +81,6 @@ export default {
         ],
         { cancelable: false }
       );
-    },
-    animateGrowth: function () {
-      this.growth.setValue(0);
-
-      Animated.timing(this.growth, {
-        toValue: 200,
-        duration: 1000,
-        easing: Easing.linear,
-      }).start(() => {
-        // this.animateGrowth();
-      });
     },
   },
 };
