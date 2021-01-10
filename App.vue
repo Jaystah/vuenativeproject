@@ -1,6 +1,5 @@
 <template>
 
-
   <app-navigator></app-navigator>
   
 </template>
@@ -9,13 +8,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 .mainTitle {
-  color: red;
+  color: blue;
   font-family: "Courier New", Courier, monospace;
   font-size: 32px;
 }
 
-* {
-}
 .growth-animated-view {
   background-color: "rgb(0, 138, 231)";
   align-self: center;
@@ -41,38 +38,29 @@
 import { Alert, Animated, Easing } from "react-native";
 import {
   createAppContainer,
-  createBottomTabNavigator,
-  createMaterialTopTabNavigator,
+  createMaterialBottomTabNavigator,
 } from "vue-native-router";
 
-
 import HomeScreen from "./screens/HomeScreen.vue";
-import DetailsScreen from "./screens/DetailsScreen.vue";
+import LoginScreen from "./screens/LoginScreen.vue";
 import SettingsScreen from "./screens/SettingsScreen.vue";
 
-const MaterialTopTabNavigator = createMaterialTopTabNavigator({
-  Details: DetailsScreen,
+const MaterialBottomTabNavigator = createMaterialBottomTabNavigator({
+  Home: HomeScreen,
+  Login: LoginScreen,
   Settings: SettingsScreen,
 });
-const AppNavigator = createAppContainer(MaterialTopTabNavigator);
+const AppNavigator = createAppContainer(MaterialBottomTabNavigator);
 
 export default {
   components: {
     AppNavigator,
   },
-
   data() {
     return {
       text: "",
       password: "",
-      growth: 0,
     };
-  },
-  created: function () {
-    this.growth = new Animated.Value(0);
-  },
-  mounted: function () {
-    this.animateGrowth();
   },
   methods: {
     showData: function () {
@@ -93,17 +81,6 @@ export default {
         ],
         { cancelable: false }
       );
-    },
-    animateGrowth: function () {
-      this.growth.setValue(0);
-
-      Animated.timing(this.growth, {
-        toValue: 200,
-        duration: 1000,
-        easing: Easing.linear,
-      }).start(() => {
-        // this.animateGrowth();
-      });
     },
   },
 };
