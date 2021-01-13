@@ -3,7 +3,7 @@
     <text class="heading">Login</text>
     <text-input placeholder="Username..." v-model="username" :style="styles.textInputStyles"></text-input>
     <text-input placeholder="Password..." v-model="password" :style="styles.textInputStyles"></text-input>
-        <touchable-opacity :on-press="login" :style="styles.loginBtn">
+        <touchable-opacity :on-press="login" class='btn' :style="styles.loginBtn">
       <text :style="{color: 'white'}">Login</text>
     </touchable-opacity>
   </view>
@@ -35,11 +35,14 @@ export default {
   },
   methods :{
     login : function () {
-      alert(`Hello ${this.username}, your password is ${this.password}`)
-    }
+      fetch('https://vueserverapi.herokuapp.com/login').then(data=>data.json()).then(res=>{
+        alert(res.message);
+      })
   }
 }
+}
 </script>
+
 <style>
 .container {
   align-items: center;
